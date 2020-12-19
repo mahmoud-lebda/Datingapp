@@ -1,16 +1,18 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">DatingApp</a>
-        <ul class="navbar-nav me-auto" *ngIf="accountServices.currentUser$ | async">
+        <a class="navbar-brand" routerLink='/' routerLinkActive='active'>DatingApp</a>
+        <ul class="navbar-nav me-auto"  *ngIf="accountServices.currentUser$ | async">
+            <ng-container>
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" routerLink='/members' routerLinkActive='active'>matches</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" routerLink='/lists' routerLinkActive='active'>lists</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Disabled</a>
+                <a class="nav-link" routerLink='/messages' routerLinkActive='active'>masseges</a>
             </li>
+        </ng-container>
         </ul>
 
         <div class="dropdown" *ngIf="accountServices.currentUser$ | async" dropdown>
@@ -26,7 +28,7 @@
             <input class="form-control mr-sm-2" name="username"
              [(ngModel)]="model.username" type="text" placeholder="Username">
             <input class="form-control mr-sm-2" name="password" [(ngModel)]="model.password" type="Password" placeholder="Password">
-            <button class="btn btn-outline-success" type="submit">Login</button>
+            <button class="btn btn-success" type="submit">Login</button>
         </form>
     </div>
 </nav>
